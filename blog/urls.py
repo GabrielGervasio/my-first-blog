@@ -10,6 +10,8 @@ urlpatterns = [
     path('post/new/', views.post_new, name='post_new'),
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
     path('equipes', views.equipes, name='equipes'),
+    path('equipe/<int:pk>/', views.equipe_detail, name='equipe_detail'),
+    path('palestra', views.palestra, name='palestra'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 

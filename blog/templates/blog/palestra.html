@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <h1>Lista de Palestras</h1>
+  <p>Mano</p>
+  {% for palestra in palestra %}
+    <div class="palestra">
+      <h2>{{ palestra.nome }}</h2>
+      <p><strong>Tema:</strong> {{ palestra.tema }}</p>
+      <p><strong>Área de Estudo:</strong> {{ palestra.area_de_estudo }}</p>
+      <p><strong>Descrição:</strong> {{ palestra.descricao }}</p>
+      <p><strong>Palestrante:</strong> {{ palestra.palestrante }}</p>
+      <p><strong>Data e Hora:</strong> {{ palestra.data_hora }}</p>
+      <!-- Adicione mais detalhes conforme necessário -->
+    </div>
+    <hr>
+  {% endfor %}
+{% endblock %}

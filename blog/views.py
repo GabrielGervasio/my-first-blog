@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post, Equipe
+from .models import Post, Equipe, Palestra
 from django.shortcuts import render, get_object_or_404,redirect
 from .forms import PostForm
 
@@ -13,6 +13,14 @@ def post_list(request):
 def equipes(request):
     equipes = Equipe.objects.all()
     return render(request, 'blog/equipes.html', {'equipes': equipes})
+
+def equipe_detail(request, pk):
+    equipe = get_object_or_404(Equipe, pk=pk)
+    return render(request, 'blog/equipe_detail.html', {'equipe': equipe})
+
+def palestra(request):
+    palestra = Palestra.objects.all()
+    return render(request, 'blog/palestra.html', {'palestra': palestra})
 
 
 def post_detail(request, pk):

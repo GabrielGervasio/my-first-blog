@@ -3,6 +3,17 @@ from django.db import models
 from django.utils import timezone
 
 
+class Palestra(models.Model):
+    nome = models.CharField(max_length=200)
+    tema = models.CharField(max_length=200)
+    area_de_estudo = models.CharField(max_length=100)
+    descricao = models.TextField()
+    palestrante = models.CharField(max_length=100)  # campo para o nome do palestrante
+    data_hora = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.nome
+
 class Equipe(models.Model):
     nome = models.CharField(max_length=100)
     membros = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='equipe_membros')

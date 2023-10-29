@@ -4,7 +4,7 @@
   <h1>Equipes</h1>
   {% for equipe in equipes %}
     <div>
-      <h2>{{ equipe.nome }}</h2>
+      <h2><a href="{% url 'equipe_detail' pk=equipe.pk %}">{{ equipe.nome }}</a></h2>
       <p>{{ equipe.descricao }}</p>
       <!-- Adicione o código para exibir a foto da equipe, se houver -->
       {% if equipe.foto %}

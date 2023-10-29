@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>{{ equipe.nome }}</h1>
+<div class="post">
+    {% if equipe.nome %}
+    <div class="date">
+        {{ equipe.descricao }}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
