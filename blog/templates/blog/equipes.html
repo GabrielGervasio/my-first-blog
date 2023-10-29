@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <h1>Equipes</h1>
+  {% for equipe in equipes %}
+    <div>
+      <h2>{{ equipe.nome }}</h2>
+      <p>{{ equipe.descricao }}</p>
+      <!-- Adicione o código para exibir a foto da equipe, se houver -->
+      {% if equipe.foto %}
+        <img src="{{ equipe.foto.url }}" alt="{{ equipe.nome }} Foto">
+      {% endif %}
+    </div>
+  {% endfor %}
+{% endblock %}
+
+
