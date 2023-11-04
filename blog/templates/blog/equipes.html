@@ -8,10 +8,8 @@
       <p>{{ equipe.descricao }}</p>
       <!-- Adicione o código para exibir a foto da equipe, se houver -->
       {% if equipe.foto %}
-        <img src="{{ equipe.foto.url }}" alt="{{ equipe.nome }} Foto">
+      <img src="{{ MEDIA_URL }}{{ equipe.foto.url }}" alt="{{ equipe.nome }}">
       {% endif %}
     </div>
   {% endfor %}
 {% endblock %}
-
-

@@ -11,9 +11,22 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+ROOTDIR = os.path.dirname(__file__)
+
+
+ADMIN_MEDIA_PREFIX ='/admin_media/'
+
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+MEDIA_URL ='/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,6 +37,8 @@ SECRET_KEY = 'django-insecure-ma$$joalsnz!2j7mslya!mqmpu&u&r!6&*gtt9a9*_=l@2@w&^
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
