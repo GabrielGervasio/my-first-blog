@@ -3,6 +3,18 @@ from django.db import models
 from django.utils import timezone
 
 
+class Atletica(models.Model):
+    nome = models.CharField(max_length=100)
+    membros = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='atletica_membros')
+    descricao = models.TextField()
+    local = models.CharField(max_length=100)
+    foto = models.ImageField(upload_to='atletica_fotos/', null=True, blank=True)
+
+    def __str__(self):
+        return self.nome
+
+
+
 class Palestra(models.Model):
     nome = models.CharField(max_length=200)
     tema = models.CharField(max_length=200)

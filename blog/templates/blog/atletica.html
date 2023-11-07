@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+  <h1>Atléticas</h1>
+  {% for atletica in atletica %}
+    <div>
+      <h2><a href="{% url 'detalhes_atletica' atletica_id=atletica.pk %}">{{ atletica.nome }}</a></h2>
+      <p>{{ atletica.descricao }}</p>
+      <!-- Adicione o código para exibir a foto da atlética, se houver -->
+      {% if atletica.foto %}
+        <img src="{{ MEDIA_URL }}{{ atletica.foto.url }}" alt="{{ atletica.nome }}">
+      {% endif %}
+    </div>
+  {% endfor %}
+{% endblock %}

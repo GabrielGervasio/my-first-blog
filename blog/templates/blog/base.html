@@ -9,19 +9,19 @@
     <body>
        
         <div class="page-header" class="gradiente">
-            <a href="{% url 'palestra' %}" class="top-menu">Palestra<span class="glyphicon glyphicon-plus"></span></a>
-             <a href="{% url 'equipes' %}" class="top-menu">Equipes<span class="glyphicon glyphicon-plus"></span></a>
-            <a href="{% url 'post_new' %}" class="top-menu">Novo post<span class="glyphicon glyphicon-plus"></span></a>
+            <a href="{% url 'palestra' %}" id="barra" class="top-menu ">Palestra</a>
+             <a href="{% url 'equipes' %}" id="barra" class="top-menu ">Equipes</a>
+            <a href="{% url 'post_new' %}" id="barra" class="top-menu ">Novo post</a>
             <h1><a href="/">PUConecta</a></h1>
         </div>
-        <div class="content container" style="width: 100%;">
-            <div class="row" style="width: 100%;">
-                <div class="col-md-8" style="width: 100%;">
+        
+            
+                
                 {% block content %}
                 {% endblock %}
-                </div>
-            </div>
-        </div>
+                
+            
+        
         
         <div class="espaço"></div>
         <footer>

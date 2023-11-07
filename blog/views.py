@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post, Equipe, Palestra
+from .models import Post, Equipe, Palestra,Atletica
 from django.shortcuts import render, get_object_or_404,redirect
 from .forms import PostForm
 
@@ -21,6 +21,17 @@ def equipe_detail(request, pk):
 def palestra(request):
     palestra = Palestra.objects.all()
     return render(request, 'blog/palestra.html', {'palestra': palestra})
+
+def atletica(request):
+    atletica = Atletica.objects.all()
+    return render(request, 'blog/atletica.html', {'atletica': atletica})
+
+def detalhes_atletica(request, atletica_id):
+    atletica = Atletica.objects.get(pk=atletica_id)
+    return render(request, 'blog/detalhes_atletica.html', {'atletica': atletica})
+
+def projeto(request):
+    return render(request, 'blog/projeto.html', {'projeto': projeto})
 
 
 def post_detail(request, pk):

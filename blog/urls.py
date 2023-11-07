@@ -12,6 +12,9 @@ urlpatterns = [
     path('equipes', views.equipes, name='equipes'),
     path('equipe/<int:pk>/', views.equipe_detail, name='equipe_detail'),
     path('palestra', views.palestra, name='palestra'),
+    path('atletica', views.atletica, name='atletica'),
+    path('atletica/<int:atletica_id>/', views.detalhes_atletica, name='detalhes_atletica'),
+    path('projeto', views.projeto, name='projeto'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 

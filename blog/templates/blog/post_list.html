@@ -5,36 +5,39 @@
 {% block content %}
 <div class="primeiro_bloco">
     <div class="carrossa">
-       <img src="media/KhyPrs.png" alt="">
+        <img src="media/KhyPrs.png" alt="" width="110%" style="margin-top: 10%;">
+        <p class="textinho">Venha conhecer o nosso projeto PUConecta, onde juntamos muitas informações possiveis sobre eventos,grupos, palestra na PUC-RIO </p>
     </div>
     <div class="menuzinho">
         <div class="t_topicos">Alguns topicos importantes</div>
-        <div class="topicos">ponto 1</div>
-        <div class="topicos">ponto 2</div>
-        <div class="topicos">ponto 3</div>
-        <div class="topicos">ponto 4</div>
-        <div class="topicos">ponto 5</div>
-    </div>
+        <div class="topicos"><a href="{% url 'equipes' %}">EQUIPES</a></div>
+        <div class="topicos">HOJE</div>
+        <div class="topicos"><a href="{% url 'palestra' %}">PALESTRAS</a></div>
+        <div class="topicos"><a href="{% url 'atletica' %}">ATLETICAS</a></div>
+        <div class="topicos"><a href="{% url 'projeto' %}">O PROJETO</a>
+        </div></div>
 </div>
+<div class="posts-container">
 {% for post in posts %}
 <div class="post">
-    <div class="date">
-        {{ post.published_date }}
-    </div>
-    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-    <p>{{ post.text|linebreaksbr }}</p>
-</div>
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="eventos" >
+        <div class="divisoria"></div>
+        <div class="img-body"><img src="media/KhyPrs.png" alt="" width="80%" style="border-radius: 5px;"></div>
+        <div class="cardbody">
+            <h5 class="card-title"style="text-align: center;"><a href="{% url 'post_detail' pk=post.pk %}" >{{ post.title }}</a></h5>
+            <p class="card-text" style="text-align: center;">
+            {{ post.text|linebreaksbr }}
+            </p>
+            <div id="force-cor" class="btn btn-primary" style="width: 40%;"><a href="{% url 'post_detail' pk=post.pk %}">Ir Para o Post</a></div>
+            <div class="date" style="text-align: center;">
+                {{ post.published_date }}
+            </div>
+        </div>
+        
     </div>
 </div>
 {% endfor %}
-
+</div>
 
 
 {% endblock %}
