@@ -4,14 +4,25 @@
         <title>APRENDENDO</title>
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
-    <body>
+    <body >
        
         <div class="page-header" class="gradiente">
-            <a href="{% url 'palestra' %}" id="barra" class="top-menu ">Palestra</a>
-             <a href="{% url 'equipes' %}" id="barra" class="top-menu ">Equipes</a>
-            <a href="{% url 'post_new' %}" id="barra" class="top-menu ">Novo post</a>
+            <a href="{% url 'palestra' %}" id="barra" class="">Palestra</a>
+            
+             <div class="dropdown">
+                <button class="btn dropdown-toggle"  id="barra" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Grupos
+                </button>
+                <ul class="dropdown-menu" id="mini-menu">
+                  <li><a class="dropdown-item mini-m" href="{% url 'equipes' %}">Equipes</a></li>
+                  <li><a class="dropdown-item mini-m" href="{% url 'palestra' %}">Atleticas</a></li>
+                  
+                </ul>
+              </div>
+            <a href="{% url 'post_new' %}" id="barra" class="">Novo post</a>
             <h1><a href="/">PUConecta</a></h1>
         </div>
         
@@ -29,6 +40,6 @@
         </footer>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN+pDcRNXy1a+ZJSqcq+8FMEVE6SCOIv6" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -3,13 +3,14 @@
 {% block content %}
   <h1>Equipes</h1>
   {% for equipe in equipes %}
-    <div>
-      <h2><a href="{% url 'equipe_detail' pk=equipe.pk %}">{{ equipe.nome }}</a></h2>
-      <p>{{ equipe.descricao }}</p>
-      <!-- Adicione o código para exibir a foto da equipe, se houver -->
+    <div class="grupos equipe-p">
       {% if equipe.foto %}
-      <img src="{{ MEDIA_URL }}{{ equipe.foto.url }}" alt="{{ equipe.nome }}">
+      <img  src="{{ MEDIA_URL }}{{ equipe.foto.url }}" alt="{{ equipe.nome }}" style="width: 50%; max-height: 435px; border-radius: 25px;background-color: white;">
       {% endif %}
+      <div class="sub-grupo">
+      <h2 class="sub-h" ><a href="{% url 'equipe_detail' pk=equipe.pk %}" >{{ equipe.nome }}</a></h2>
+      <p class="sub-p">{{ equipe.descricao }}</p>
+    </div>
     </div>
   {% endfor %}
 {% endblock %}

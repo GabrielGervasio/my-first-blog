@@ -1,12 +1,26 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<h1>{{ equipe.nome }}</h1>
-<div class="post">
-    {% if equipe.nome %}
-    <div class="date">
-        {{ equipe.descricao }}
+<div class="detalhes-equipe">
+    <h1 style="font-size: 75px; text-align: center;">{{ equipe.nome }}</h1>
+    <div>
+        {% if equipe.nome %}
+        <div class="cabe-e">
+            <img src="{{ MEDIA_URL }}{{ equipe.foto.url }}" alt="{{ equipe.nome }}" style="max-height: 450px;max-width: 50%;">
+            <div class="information-e"> 
+                <p>Localiza: {{equipe.local}}</p>
+                <p>Membros: 
+                    <ul>
+                    {% for membro in equipe.membros.all %}
+                        <li>{{ membro.username }}</li>
+                    {% endfor %}
+                </ul></p>
+            </div>
+        </div>
+        <div class="date">
+            {{ equipe.descricao }}
+        </div>
+        {% endif %}
     </div>
-    {% endif %}
 </div>
 {% endblock %}
