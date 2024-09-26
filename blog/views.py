@@ -3,6 +3,31 @@ from django.utils import timezone
 from .models import Post, Equipe, Palestra,Atletica
 from django.shortcuts import render, get_object_or_404,redirect
 from .forms import PostForm
+from django.contrib.auth.models import User
+from django.views.decorators.http import require_POST
+from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
+...
+@require_POST
+def cadastrar_usuario(request):
+    nome_usuario = request.POST['campo-nome-usuario']
+    email = request.POST['campo-email']
+    senha = request.POST['campo-senha']
+
+    novoUsuario = User.objects.create_user(username=nome_usuario, email=email, password=senha)
+    novoUsuario.save()
+
+
+def entrar(request):
+    usuario_aux = User.objects.get(email=request.POST['email'])
+    usuario = authenticate(username=usuario_aux.username,
+                           password=request.POST["senha"])
+    if usuario is not None:
+        login(request, usuario)
+        return HttpResponseRedirect('/home/')
+
+    return HttpResponseRedirect('/')
+
 
 
 

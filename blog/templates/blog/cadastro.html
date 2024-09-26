@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h2>Register</h2>
+    <form method="POST" action="{% url 'cadastrar_usuario' %}">
+        {% csrf_token %}
+        <input type="text" name="campo-nome-usuario" />
+        <input type="email" name="campo-email" />
+        <input type="password" name="campo-senha" />
+        <input type="submit" value="Cadastrar" />
+    </form>
+    
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</body>
+</html>
